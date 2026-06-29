@@ -1,8 +1,8 @@
-**Welcome to your Base44 project** 
+**Welcome to your meintainance project** 
 
 **About**
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+
 
 This project contains everything you need to run your app locally.
 
@@ -30,7 +30,7 @@ Run the app: `npm run dev`
 
 **Publish your changes**
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+
 
 **Docs & Support**
 
