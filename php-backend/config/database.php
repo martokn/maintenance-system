@@ -9,7 +9,7 @@ defined('DB_PASS') || define('DB_PASS', '');
 defined('DB_NAME') || define('DB_NAME', 'maintenance_system_db');
 defined('DB_PORT') || define('DB_PORT', 3306);
 
-// Create connection
+// Create connection testing commit 
 try {
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
     
