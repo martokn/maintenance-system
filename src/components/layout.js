@@ -98,7 +98,7 @@ export function appLayout(contentFn) {
         if (content) content.className = `transition-all duration-300 ${collapsed ? 'ml-16' : 'ml-60'}`;
       });
       document.getElementById('sidebar-logout')?.addEventListener('click', () => {
-        fetch('/api/auth/logout').catch(() => {});
+        fetch('/fuel/api/auth/logout').catch(() => {});
         clearAuth();
         window.location.href = '/fuel/login';
       });

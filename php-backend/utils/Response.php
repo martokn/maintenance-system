@@ -39,7 +39,7 @@ class Response {
                 'total' => $total,
                 'page' => (int)$page,
                 'per_page' => (int)$per_page,
-                'total_pages' => ceil($total / $per_page)
+                'total_pages' => $per_page > 0 ? ceil($total / $per_page) : 0
             ],
             'timestamp' => date('Y-m-d H:i:s')
         ]);

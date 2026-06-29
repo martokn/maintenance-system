@@ -24,8 +24,8 @@ class InspectionReportController {
             Response::error('Method not allowed', 405);
         }
 
-        $page = (int)($_GET['page'] ?? 1);
-        $limit = (int)($_GET['limit'] ?? 20);
+        $page = max(1, (int)($_GET['page'] ?? 1));
+        $limit = max(1, (int)($_GET['limit'] ?? 20));
         $offset = ($page - 1) * $limit;
 
         $reports = $this->reportModel->getAll($limit, $offset);

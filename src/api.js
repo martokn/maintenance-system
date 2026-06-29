@@ -66,7 +66,13 @@ const api = {
   },
 
   vehicles: {
-    list: (limit = 20) => api._fetch(`/vehicles?page=1&limit=${limit}`),
+    list: (a, b) => {
+      let limit = 20, sort = '';
+      if (typeof a === 'number') limit = a; else if (typeof a === 'string') sort = a;
+      if (typeof b === 'number') limit = b; else if (typeof b === 'string') sort = b;
+      const qs = `page=1&limit=${limit}${sort ? `&sort=${encodeURIComponent(sort)}` : ''}`;
+      return api._fetch(`/vehicles?${qs}`);
+    },
     get: (id) => api._fetch(`/vehicles/${id}`),
     create: (d) => api._fetch('/vehicles/create', { method: 'POST', body: d }),
     update: (id, d) => api._fetch(`/vehicles/${id}/update`, { method: 'PUT', body: d }),
@@ -75,7 +81,7 @@ const api = {
   },
 
   inspectionReports: {
-    list: (limit = 20) => api._fetch(`/inspection-reports?page=1&limit=${limit}`),
+    list: (sort) => api._fetch(`/inspection-reports?page=1&limit=20${sort ? `&sort=${sort}` : ''}`),
     get: (id) => api._fetch(`/inspection-reports/${id}`),
     create: (d) => api._fetch('/inspection-reports/create', { method: 'POST', body: d }),
     update: (id, d) => api._fetch(`/inspection-reports/${id}/update`, { method: 'PUT', body: d }),
@@ -86,7 +92,13 @@ const api = {
   },
 
   jobCards: {
-    list: (limit = 20) => api._fetch(`/job-cards?page=1&limit=${limit}`),
+    list: (a, b) => {
+      let limit = 20, sort = '';
+      if (typeof a === 'number') limit = a; else if (typeof a === 'string') sort = a;
+      if (typeof b === 'number') limit = b; else if (typeof b === 'string') sort = b;
+      const qs = `page=1&limit=${limit}${sort ? `&sort=${encodeURIComponent(sort)}` : ''}`;
+      return api._fetch(`/job-cards?${qs}`);
+    },
     get: (id) => api._fetch(`/job-cards/${id}`),
     create: (d) => api._fetch('/job-cards/create', { method: 'POST', body: d }),
     update: (id, d) => api._fetch(`/job-cards/${id}/update`, { method: 'PUT', body: d }),
@@ -95,7 +107,13 @@ const api = {
   },
 
   partsRequests: {
-    list: (limit = 20) => api._fetch(`/parts-requests?page=1&limit=${limit}`),
+    list: (a, b) => {
+      let limit = 20, sort = '';
+      if (typeof a === 'number') limit = a; else if (typeof a === 'string') sort = a;
+      if (typeof b === 'number') limit = b; else if (typeof b === 'string') sort = b;
+      const qs = `page=1&limit=${limit}${sort ? `&sort=${encodeURIComponent(sort)}` : ''}`;
+      return api._fetch(`/parts-requests?${qs}`);
+    },
     get: (id) => api._fetch(`/parts-requests/${id}`),
     create: (d) => api._fetch('/parts-requests/create', { method: 'POST', body: d }),
     update: (id, d) => api._fetch(`/parts-requests/${id}/update`, { method: 'PUT', body: d }),
@@ -117,7 +135,13 @@ const api = {
   },
 
   notifications: {
-    list: (limit = 20) => api._fetch(`/notifications?page=1&limit=${limit}`),
+    list: (a, b) => {
+      let limit = 20, sort = '';
+      if (typeof a === 'number') limit = a; else if (typeof a === 'string') sort = a;
+      if (typeof b === 'number') limit = b; else if (typeof b === 'string') sort = b;
+      const qs = `page=1&limit=${limit}${sort ? `&sort=${encodeURIComponent(sort)}` : ''}`;
+      return api._fetch(`/notifications?${qs}`);
+    },
     get: (id) => api._fetch(`/notifications/${id}`),
     create: (d) => api._fetch('/notifications/create', { method: 'POST', body: d }),
     delete: (id) => api._fetch(`/notifications/${id}/delete`, { method: 'DELETE' }),
