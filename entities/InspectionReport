@@ -1,0 +1,85 @@
+{
+  "name": "InspectionReport",
+  "type": "object",
+  "properties": {
+    "report_number": {
+      "type": "string",
+      "description": "Auto-generated report number"
+    },
+    "vehicle_id": {
+      "type": "string",
+      "description": "Reference to Vehicle"
+    },
+    "plate_number": {
+      "type": "string"
+    },
+    "vehicle_make_model": {
+      "type": "string"
+    },
+    "vehicle_department": {
+      "type": "string"
+    },
+    "inspector_name": {
+      "type": "string"
+    },
+    "inspection_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "findings": {
+      "type": "string",
+      "description": "Inspection findings and issues"
+    },
+    "recommended_parts": {
+      "type": "string",
+      "description": "Comma-separated list of recommended parts"
+    },
+    "estimated_cost": {
+      "type": "number"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Medium"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Uploaded photo URLs"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Awaiting Approval",
+        "Approved",
+        "Rejected",
+        "Completed",
+        "Verified"
+      ],
+      "default": "Awaiting Approval"
+    },
+    "department_comments": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approval_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "vehicle_id",
+    "plate_number",
+    "inspector_name",
+    "findings"
+  ]
+}

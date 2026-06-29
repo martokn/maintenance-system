@@ -1,0 +1,41 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "inspection",
+        "approval",
+        "parts",
+        "completion",
+        "info"
+      ]
+    },
+    "target_department": {
+      "type": "string",
+      "enum": [
+        "Inspection",
+        "Department Approver",
+        "Workshop",
+        "Stores",
+        "All"
+      ]
+    },
+    "reference_id": {
+      "type": "string"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "message",
+    "type",
+    "target_department"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Vehicle",
+  "type": "object",
+  "properties": {
+    "plate_number": {
+      "type": "string",
+      "description": "Vehicle registration plate number"
+    },
+    "make": {
+      "type": "string",
+      "description": "Vehicle make e.g. Toyota, Nissan"
+    },
+    "model": {
+      "type": "string",
+      "description": "Vehicle model e.g. Hilux, Patrol"
+    },
+    "year": {
+      "type": "number",
+      "description": "Year of manufacture"
+    },
+    "department": {
+      "type": "string",
+      "enum": [
+        "Roads Department",
+        "Health Department",
+        "Water Department",
+        "Agriculture Department",
+        "Education Department",
+        "Finance Department"
+      ],
+      "description": "Owning department"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "In Maintenance",
+        "Grounded"
+      ],
+      "default": "Active"
+    },
+    "chassis_number": {
+      "type": "string"
+    },
+    "fuel_type": {
+      "type": "string",
+      "enum": [
+        "Petrol",
+        "Diesel",
+        "Electric"
+      ]
+    }
+  },
+  "required": [
+    "plate_number",
+    "make",
+    "model",
+    "department"
+  ]
+}

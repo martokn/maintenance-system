@@ -1,0 +1,60 @@
+{
+  "name": "JobCard",
+  "type": "object",
+  "properties": {
+    "job_number": {
+      "type": "string",
+      "description": "Auto-generated job number"
+    },
+    "inspection_report_id": {
+      "type": "string"
+    },
+    "vehicle_id": {
+      "type": "string"
+    },
+    "plate_number": {
+      "type": "string"
+    },
+    "vehicle_make_model": {
+      "type": "string"
+    },
+    "approved_repair": {
+      "type": "string",
+      "description": "Description of approved repair work"
+    },
+    "assigned_mechanic": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "In Progress",
+        "Awaiting Parts",
+        "Completed",
+        "Verified"
+      ],
+      "default": "In Progress"
+    },
+    "work_done": {
+      "type": "string",
+      "description": "Description of completed work"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "inspection_report_id",
+    "vehicle_id",
+    "plate_number",
+    "approved_repair"
+  ]
+}

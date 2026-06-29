@@ -1,0 +1,73 @@
+{
+  "name": "PartsRequest",
+  "type": "object",
+  "properties": {
+    "request_number": {
+      "type": "string",
+      "description": "Auto-generated request number"
+    },
+    "job_card_id": {
+      "type": "string"
+    },
+    "job_number": {
+      "type": "string"
+    },
+    "requested_by": {
+      "type": "string"
+    },
+    "request_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "part_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Requested",
+              "Approved",
+              "Issued",
+              "Rejected"
+            ]
+          }
+        }
+      },
+      "description": "List of requested parts"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Approved",
+        "Partially Issued",
+        "Issued",
+        "Rejected"
+      ],
+      "default": "Pending"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "issue_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "voucher_number": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_card_id",
+    "job_number",
+    "requested_by"
+  ]
+}

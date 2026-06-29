@@ -1,0 +1,58 @@
+{
+  "name": "InventoryItem",
+  "type": "object",
+  "properties": {
+    "part_name": {
+      "type": "string"
+    },
+    "part_number": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Brakes",
+        "Engine",
+        "Electrical",
+        "Body",
+        "Suspension",
+        "Fluids",
+        "Filters",
+        "Tyres",
+        "Other"
+      ]
+    },
+    "quantity_in_stock": {
+      "type": "number",
+      "default": 0
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "Pieces",
+        "Litres",
+        "Sets",
+        "Metres",
+        "Kg"
+      ],
+      "default": "Pieces"
+    },
+    "reorder_level": {
+      "type": "number",
+      "default": 5
+    },
+    "unit_cost": {
+      "type": "number",
+      "default": 0
+    },
+    "location": {
+      "type": "string",
+      "description": "Storage location"
+    }
+  },
+  "required": [
+    "part_name",
+    "category",
+    "quantity_in_stock"
+  ]
+}
