@@ -4,13 +4,21 @@ RewriteEngine On
 RewriteCond %{HTTP:Authorization} ^(.+)$
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
 
-# If the requested file or directory exists, serve it directly
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
+# Serve built assets (JS, CSS) from dist/assets/
+RewriteRule ^assets/(.*)$ /fuel/dist/assets/$1 [L]
+
+# Serve built index.html for root URL and explicit /index.html requests
+RewriteRule ^(index\.html)?$ /fuel/dist/index.html [L]
+
+# If the requested file exists, serve it directly (but not directories)
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Forward PHP backend API routes
+# Forward API routes (from the frontend fetch calls) to PHP backend
+RewriteRule ^api/(.*)$ php-backend/api/index.php?request=$1 [QSA,L]
+
+# Forward direct PHP backend API routes (for any direct access)
 RewriteRule ^php-backend/(.*)$ php-backend/api/index.php?request=$1 [QSA,L]
 
-# Forward all other requests to index.html for React Router
-RewriteRule ^(.*)$ index.html [QSA,L]
+# Forward all other frontend routes to the built index.html (SPA fallback)
+RewriteRule ^(.*)$ /fuel/dist/index.html [L]

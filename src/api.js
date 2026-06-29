@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = '/fuel/api';
 
 const api = {
   _token: localStorage.getItem('auth_token'),

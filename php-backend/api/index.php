@@ -21,11 +21,14 @@ CORSMiddleware::handleCORS();
 // Get database connection
 $conn = require_once __DIR__ . '/../config/database.php';
 
-// Parse URL - works with both /api/... and /fuel/php-backend/api/... paths
-$request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$api_pos = strpos($request_uri, '/api/');
-$request_uri = $api_pos !== false ? substr($request_uri, $api_pos + 5) : '';
-$parts = array_values(array_filter(explode('/', $request_uri)));
+// Parse URL - works with /api/... (from our rewrite rule) or direct paths
+$request_path = $_GET['request'] ?? '';
+if (!$request_path) {
+    $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $api_pos = strpos($request_uri, '/api/');
+    $request_path = $api_pos !== false ? substr($request_uri, $api_pos + 5) : '';
+}
+$parts = array_values(array_filter(explode('/', $request_path)));
 
 // Route handling
 if (count($parts) === 0) {
